@@ -1,12 +1,12 @@
-from flask import flask
+from flask import flask, render_template
 app = flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Página inicial'
+    return render_template("index.html")
 
 
 
-@app.router('/sobre')
+@app.router('/sobre_mim')
 def sobre():
-    return 'Sobre mim'
+    return render_template("about.html")
