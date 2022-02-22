@@ -7,7 +7,12 @@
     <title>Página com python</title>
 </head>
 <body>
-    <h1>Página principal</h1>
-    <p>Bem-vindo</p>
+    <h1>{{ variavel }}</h1>
+    <!-- url_for está redirecionando para a função index()-->
+    <form action="{{ url_for('index')}}" method="POST">
+        <label for="">Número</label><br>
+        <input type="text" name="name" placeholder="Insira um número">
+        <button>Enviar</button>
+    </form>
 </body>
 </html>

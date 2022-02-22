@@ -1,9 +1,22 @@
-from flask import flask, render_template
+from flask import flask, render_template, request
+from random import randint
 app = flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=["GET, POST"])
 def index():
-    return render_template("index.html")
+    variavel = "Game: Adivinhe o número correto (de 0 à 9)"
+
+    if request.method =="GET":
+        return render_template("index.html", variavel=variavel)
+    else:
+        numero = randint(0,9)
+        palpite = int(request.form.get("name"))
+        if numero == palpite:
+            return '<h1>Resultado: Você ganhou</h1>'
+        else:
+            return '<h1>Você perdeu</h1>'
+
+
 
 
 
